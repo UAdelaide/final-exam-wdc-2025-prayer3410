@@ -15,7 +15,7 @@ let db;
 
 (async () => {
   try {
-    // Step 1: Connect to MySQL and Create the DogWalkService database if not exists
+    
     const connection = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
