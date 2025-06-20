@@ -151,7 +151,7 @@ let db;
         )
     `);
     }
-    
+
   } catch (err) {
     console.error('Error setting up database:', err);
   }
