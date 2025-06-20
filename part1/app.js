@@ -150,6 +150,16 @@ let db;
         'Nice walk, thank you!'
         )
     `);
+
+    await db.execute(`
+    UPDATE WalkRequests
+    SET status = 'completed'
+    WHERE request_id IN (
+      (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1),
+      (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella') LIMIT 1)
+    )
+  `);
+
     }
 
   } catch (err) {
