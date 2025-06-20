@@ -130,7 +130,26 @@ let db;
     `);
     }
 
-    
+    const [ratingCount] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
+    if (ratingCount[0].count === 0) {
+    await db.execute(`
+        INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments)
+        VALUES
+        (
+        (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max') LIMIT 1),
+        (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+        (SELECT user_id FROM Users WHERE username = 'alice123'),
+        5,
+        'Great walk, very punctual!'
+        ),
+        (
+        (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella') LIMIT 1),
+        (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+        (SELECT user_id FROM Users WHERE username = 'carol123'),
+        4,
+        'Nice walk, thank you!'
+        )
+    `);
 
   } catch (err) {
     console.error('Error setting up database:', err);
