@@ -53,7 +53,7 @@ let db;
       )
     `);
 
-    // Step 4: Insert seed data if not already inserted
+
     const [userCount] = await db.execute('SELECT COUNT(*) as count FROM Users');
     if (userCount[0].count === 0) {
       await db.execute(`
