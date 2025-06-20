@@ -62,7 +62,6 @@ let db;
         ('carol123', 'carol@example.com', 'hashed789', 'owner'),
         ('lucaswalker', 'lucas@walkers.net', 'hashedabc', 'walker'),
         ('ninaowner', 'nina@doglovers.org', 'hashednina', 'owner')
-
       `);
     }
 
