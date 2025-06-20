@@ -140,7 +140,7 @@ let db;
         (SELECT user_id FROM Users WHERE username = 'bobwalker'),
         (SELECT user_id FROM Users WHERE username = 'alice123'),
         5,
-        'Great walk, very punctual!'
+        'Amazing work!'
         ),
         (
         (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Bella') LIMIT 1),
