@@ -57,7 +57,7 @@ router.post('/login', async (req, res) => {
       role: user.role
     };
 
-    res.json({ success: true, role: user.role }); // important for redirect
+    res.json({ success: true, role: user.role });
   } catch (error) {
     res.status(500).json({ success: false, error: 'Login failed' });
   }
