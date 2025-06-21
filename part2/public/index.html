@@ -68,7 +68,6 @@
               this.loggedIn = true;
 
               // Redirect based on role after short delay so user can see login success
-              setTimeout(() => {
                 if (data.role === 'owner') {
                   window.location.href = 'owner-dashboard.html';
                 } else if (data.role === 'walker') {
