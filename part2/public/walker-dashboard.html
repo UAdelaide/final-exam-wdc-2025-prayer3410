@@ -87,6 +87,7 @@
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
+              // Using actual walker ID from session
               body: JSON.stringify({ walker_id: currentUser.user_id })
             });
 
