@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 require('dotenv').config();
 
 const app = express();
@@ -12,7 +13,7 @@ app.use(session({
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    maxAge: 1000 * 60 * 60  
+    maxAge: 1000 * 60 * 60
   }
 }));
 app.use(express.static(path.join(__dirname, '/public')));
