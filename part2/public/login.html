@@ -27,6 +27,8 @@
       <input v-model="password" type="password" id="password" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary w-100">Login</button>
+
+    <!-- Error -->
     <p class="text-danger mt-2" v-if="error">{{ error }}</p>
   </form>
 </div>
