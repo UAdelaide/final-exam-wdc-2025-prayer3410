@@ -6,6 +6,15 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'mySecretKey',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60  
+  }
+}));
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
