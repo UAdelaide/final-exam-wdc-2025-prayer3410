@@ -75,6 +75,7 @@
 
         async function applyToWalk(requestId) {
           try {
+            // Fetch current logged-in user's info from the session
             const currentUser = await getCurrentUser();
             if (!currentUser || currentUser.role !== 'walker') {
               throw new Error('Only walkers can apply to walks');
