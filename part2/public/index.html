@@ -109,6 +109,8 @@
             this.error = 'Server error. Please try again.';
           }
         },
+
+        //Function to fetch the random images for the dogs detail table
         async fetchDogs() {
           try {
             const res = await fetch('/api/dogs');
