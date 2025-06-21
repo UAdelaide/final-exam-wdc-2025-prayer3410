@@ -59,7 +59,7 @@
           }
         }
 
-        //Fetching the logged-in users info from the session
+        //Fetching the logged-in user's info from the session
         async function getCurrentUser() {
           try {
             const res = await fetch('/api/users/me');
@@ -77,6 +77,8 @@
           try {
             // Fetch current logged-in user's info from the session
             const currentUser = await getCurrentUser();
+
+            // Ensure the user is logged in and is a walker
             if (!currentUser || currentUser.role !== 'walker') {
               throw new Error('Only walkers can apply to walks');
             }
