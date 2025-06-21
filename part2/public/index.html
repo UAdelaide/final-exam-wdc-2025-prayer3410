@@ -73,6 +73,7 @@
           password: '',
           error: '',
           loggedIn: false,
+          dogs: []
         };
       },
       methods: {
@@ -108,7 +109,6 @@
             this.error = 'Server error. Please try again.';
           }
         },
-
         async fetchDogs() {
           try {
             const res = await fetch('/api/dogs');
@@ -126,7 +126,9 @@
           }
         }
       },
-      },
+      mounted() {
+        this.fetchDogs();
+      }
     }).mount('#app');
   </script>
 
