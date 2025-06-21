@@ -67,27 +67,9 @@
             if (data.success) {
               this.loggedIn = true;
 
-              //Redirecting based on the user's rol
-                if (data.role === 'owner') {
-                  window.location.href = 'owner-dashboard.html';
-                } else if (data.role === 'walker') {
-                  window.location.href = 'walker-dashboard.html';
-                } else {
-                  this.error = 'Unrecognized user role.';
-                  this.loggedIn = false;
-                }
-              }
-            } else {
-              this.error = data.error || 'Invalid username or password.';
-            }
-          } catch (err) {
-            this.error = 'Server error. Please try again.';
-          }
-        },
-      },
-    }).mount('#app');
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+              if (data.role === 'owner') {
+                window.location.href = 'owner-dashboard.html';
+              } else if (data.role === 'walker') {
+                window.location.href = 'walker-dashboard.html';
+              } else {
+                t
