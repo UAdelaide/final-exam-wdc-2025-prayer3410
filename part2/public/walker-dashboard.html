@@ -47,7 +47,7 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
-        const user = 3;
+
 
         async function loadWalkRequests() {
           try {
@@ -59,7 +59,7 @@
           }
         }
 
-        //Fetching the logged-in users
+        //Fetching the logged-in users info from the session
         async function getCurrentUser() {
           try {
             const res = await fetch('/api/users/me');
