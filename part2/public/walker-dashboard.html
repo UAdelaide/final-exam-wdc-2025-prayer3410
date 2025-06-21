@@ -78,11 +78,12 @@
             // Fetch current logged-in user's info from the session
             const currentUser = await getCurrentUser();
 
-            // Ensure the user is logged in and is a walker
+            // Making sure the user is logged in and is a walker
             if (!currentUser || currentUser.role !== 'walker') {
               throw new Error('Only walkers can apply to walks');
             }
 
+            // POST request to apply for the walk using the walker's user ID
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
