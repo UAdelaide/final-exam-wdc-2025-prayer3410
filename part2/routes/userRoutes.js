@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
 
     const user = rows[0];
 
-    // Stores session information 
+    // Stores session information
     req.session.user = {
       user_id: user.user_id,
       username: user.username,
@@ -66,5 +66,13 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//POST Logout and clears cookies as well
+router.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) return res.status(500).json({ error: 'Logout failed' });
+    res.clearCookie('connect.sid');
+    res.json({ success: true });
+  });
+});
 
 module.exports = router;
