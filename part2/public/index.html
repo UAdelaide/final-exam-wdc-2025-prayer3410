@@ -108,6 +108,26 @@
             this.error = 'Server error. Please try again.';
           }
         },
+
+        async fetchDogs() {
+          try {
+            const res = await fetch('/api/dogs');
+            const dogList = await res.json();
+
+            const dogPromises = dogList.map(async (dog) => {
+              const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+              const imgData = await imgRes.json();
+              return { ...dog, photo: imgData.message };
+            });
+
+            this.dogs = await Promise.all(dogPromises);
+          } catch (err) {
+            console.error('Failed to load dogs:', err);
+          }
+        }
+      },
+
+
       },
     }).mount('#app');
   </script>
