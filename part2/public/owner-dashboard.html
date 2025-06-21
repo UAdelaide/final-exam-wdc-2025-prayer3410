@@ -121,7 +121,16 @@
             message.value = '';
           }
         }
-        
+
+        async function loadDogs() {
+          try {
+            const res = await fetch('/api/dogs/my-dogs');
+            if (!res.ok) throw new Error('Could not fetch dogs');
+            dogs.value = await res.json();
+          } catch (err) {
+            error.value = 'Failed to load dogs';
+          }
+        }
 
         //Logout
         async function logout() {
