@@ -118,7 +118,7 @@
           }
         }
 
-        //Logout 
+        //Logout
         async function logout() {
           try {
             await fetch('/api/users/logout', { method: 'POST' });
@@ -137,7 +137,8 @@
           walks,
           message,
           error,
-          submitWalkRequest
+          submitWalkRequest,
+          logout
         };
       }
     }).mount('#app');
